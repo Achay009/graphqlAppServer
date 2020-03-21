@@ -3,6 +3,7 @@ const graphqlHTTP = require('express-graphql')
 const schema = require('./schema/schema');
 const mongoose = require('mongoose');
 const cors = require('cors')
+const morgan = require('morgan')
 
 const app = express()
 
@@ -22,6 +23,7 @@ db.once('error', function () {
 })
 
 app.use(cors())
+app.use(morgan('combined'))
 
 app.use('/graphql', graphqlHTTP({
     schema: schema,
