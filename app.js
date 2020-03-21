@@ -7,7 +7,7 @@ const morgan = require('morgan')
 
 const app = express()
 
-mongoose.connect('mongodb+srv://bedspace:bedspace@cluster0-i7axl.mongodb.net/test?retryWrites=true&w=majority', {
+mongoose.connect(process.env.MONGDB_URI, {
     useNewUrlParser: true,
     useCreateIndex: true,
     useUnifiedTopology: true
